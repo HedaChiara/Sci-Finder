@@ -191,39 +191,15 @@ for book in selected:
         rated.append(book)
 
 def get_recs():
-    tops = []
-    # getting some random liked books by the users that share the most number of liked books
-    # if there are less than 4 most similar users
-    if len(most_similar) < 4:
-        for user in most_similar:
-            # is a similar user has rated a lot of books, get 4 from this user
-            if len(most_similar[user]) >= 4:
-                random_recs = random.sample(most_similar[user], 4)
-                for rrec in random_recs:
-                    if rrec not in tops and rrec not in selected:
-                        tops.append(rrec)
-            # otherwise, only get one
-            else:
-                rrec = random.sample(most_similar[user], 1)
-                if rrec not in tops and rrec not in selected:
-                    tops.append(rrec)
-    # if there are more than 4 similar users
-    else:
-        for user in most_similar:
-            # is a similar user has rated a lot of books, get 3 from this user
-            if len(most_similar[user]) >= 4:
-                random_recs = random.sample(most_similar[user], 3)
-                for rrec in random_recs:
-                    if rrec not in tops and rrec not in selected:
-                        tops.append(rrec)
-            # otherwise, only get one
-            else:
-                rrec = random.sample(most_similar[user], 1)
-                if rrec not in tops and rrec not in selected:
-                    tops.append(rrec)
-    return tops
+    recs = []
+    # list of books the most similar users liked
+    for user in most_similar:
+        for book in most_similar[user]:
+            if book not in recs and book not in selected:
+                recs.append(book)
+    return recs
 
-
+# returning a sample of the books the most similar users liked
 if rated != []:
     tops = get_recs()
     if len(tops) >= 10:
