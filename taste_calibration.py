@@ -211,12 +211,13 @@ if rated != []:
 
 # centered "more recs" button
 col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    st.write("")
-    more = st.button("Get me some more recommendations", icon = "🔄")
-        
-if more:
-    tops = get_recs()
+if len(selected) > 0:
+    with col2:
+        st.write("")
+        more = st.button("Get me some more recommendations", icon = "🔄")
+            
+    if more:
+        tops = get_recs()
 
 
 
