@@ -55,8 +55,8 @@ html_less_pop = less_pop.head(10).to_pandas().to_html(index=False, classes="cust
 
 # dataframe containing only the recommended books that are not by the same author as given_book
 # author of given_book
-author = given_book.split(", ")[1]
-top_different_authors = top50.filter(~pl.col("Most similar books").str.contains(author)).select(pl.col("Most similar books").alias("Similar books by a different author"))
+author = given_book.split(",")[-1]
+top_different_authors = top50.filter(pl.col("Most similar books").str.contains(author).not_()).select(pl.col("Most similar books").alias("Similar books by a different author"))
 html_top_different_authors = top_different_authors.head(10).to_pandas().to_html(index=False, classes="custom-table")
 
 # dataframe containing only the recommended books that are not by the same author as given_book that have less than 100k ratings
