@@ -242,9 +242,6 @@ pg = st.navigation([main_page, personalize, rand]) # append other pages
 pg.run()
 
 # credits
-st.sidebar.markdown("---")
-
-
 st.sidebar.markdown(
     """
     <div style='position: fixed; bottom: 20px;'>
