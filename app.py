@@ -241,3 +241,25 @@ pg = st.navigation([main_page, personalize, rand]) # append other pages
 # Run the selected page
 pg.run()
 
+# credits
+st.sidebar.markdown("---")
+
+
+st.sidebar.markdown(
+    """
+    <div style='position: fixed; bottom: 20px;'>
+        <p style='margin-bottom: 5px;'><strong>Created by:</strong><br>
+        Chiara Valentini<br>
+        <p style='margin-top: 5px;'>
+            <a href="https://github.com/HedaChiara" target="_blank" style="display: inline-block;">
+                <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="GitHub" width="24" height="24">
+            </a>
+            <a href="https://www.linkedin.com/in/chiaravalentinistat/" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="24" height="24">
+            </a>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
